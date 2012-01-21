@@ -1,0 +1,10 @@
+bin/
+.project
+.settings/
+.classpath
+build/
+release/
+doc/
+*~
+\#*
+.\#*
