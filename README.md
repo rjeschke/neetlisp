@@ -3,7 +3,7 @@ Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
 See LICENSE.txt (Apache v2.0) for licensing information.
 
 # What?
-Neetlisp is a Lisp dialect running on the Java Virtual Machine. Well, I think
+Neetlisp is a Lisp dialect (Lisp-1) running on the Java Virtual Machine. Well, I think
 it is closer to clojure than to Lisp.
 
 # Why?
@@ -14,7 +14,35 @@ to check out if I can build a bytecode compiling Lisp for the JVM.
 Somewhere between alpha and beta, there's a lot of stuff missing.
 
 # How?
-Clone from github and run ant. This will open up the Java SWING neetlisp REPL.
+Clone from github and run ant. This will open up the Java SWING neetlisp REPL. You may also
+have a look at src/neetlisp/nlsp for some neetlisp code.
+
+# Features?
+There's some hardcore coding action going on to make neetlisp feature complete.
+What I got so far is:
+
+* Neat REPL with rainbow-braces
+* Reader macros, macros, fns
+* basic sequence stuff
+* lazy sequences (not 100% complete, about 20% I think)
+* Unoptimized bytecode compilation
+* Lexical scoping (closures)
+* Very basic SWANK implementation (emax-rex) with just connect and eval
+
+Missing/TODO/thoughts:
+
+* loop/recur, tail-calls, lazy-seq
+* Improved sequence implementation (Java-side and nlsp-api)
+* More sanity checks
+* Optimizing compiler
+* Java interop?
+* More API stuff
+* Maps and sets
+* Improve SWANK
+* Create neetlisp-mode
+* More detailed doc-strings
+* Code cleanups (especially the compiler section)
+* ...
 
 # REPL
 Keybindings:
