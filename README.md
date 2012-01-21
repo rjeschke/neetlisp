@@ -1,5 +1,5 @@
 # neetlisp - A Lisp dialect for the JVM
-Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
+Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>  
 See LICENSE.txt (Apache v2.0) for licensing information.
 
 # What?
@@ -33,435 +33,435 @@ Keybindings:
 This is a dump of all fn docs. Work in progress, some docs missing, lot of
 api functions missing.
 
-core/*
+core/*  
 ---
-fn 'core/* (&)
+fn 'core/* (&)  
 (& xs)
- Returns the product of xs, (*) returns 1
+ Returns the product of xs, (*) returns 1  
 
-core/+
+core/+  
 ---
-fn 'core/+ (&)
+fn 'core/+ (&)  
 (& xs)
- Returns the sum of all xs, (+) returns 0
+ Returns the sum of all xs, (+) returns 0  
 
-core/-
+core/-  
 ---
-fn 'core/- (1 &)
+fn 'core/- (1 &)  
 (num & nums)
- Returns all nums subtracted from num or the negation of num if no nums are supplied
+ Returns all nums subtracted from num or the negation of num if no nums are supplied  
 
-core//
+core//  
 ---
-fn 'core// (1 &)
+fn 'core// (1 &)  
 (num & den)
  Returns num divided by all dens, if no dens are supplied
- returns 1/num
+ returns 1/num  
 
-core/<
+core/<  
 ---
-fn 'core/< (1 &)
+fn 'core/< (1 &)  
 (num & nums)
- Returns true if num & nums are in monotonically increasing order
+ Returns true if num & nums are in monotonically increasing order  
 
-core/<=
+core/<=  
 ---
-fn 'core/<= (1 &)
+fn 'core/<= (1 &)  
 (num & nums)
- Returns true if num & nums are in monotonically non-decreasing order
+ Returns true if num & nums are in monotonically non-decreasing order  
 
-core/=
+core/=  
 ---
-fn 'core/= (1 &)
+fn 'core/= (1 &)  
 (num & nums)
- Returns true if num is equal to all nums
+ Returns true if num is equal to all nums  
 
-core/==
+core/==  
 ---
-fn 'core/== (1 &)
+fn 'core/== (1 &)  
 (x & xs)
- Returns true if x is equal to all xs
+ Returns true if x is equal to all xs  
 
-core/>
+core/>  
 ---
-fn 'core/> (1 &)
+fn 'core/> (1 &)  
 (num & nums)
- Returns true if num & nums are in monotonically decreasing order
+ Returns true if num & nums are in monotonically decreasing order  
 
-core/>=
+core/>=  
 ---
-fn 'core/>= (1 &)
+fn 'core/>= (1 &)  
 (num & nums)
- Returns true if num & nums are in monotonically non-increasing order
+ Returns true if num & nums are in monotonically non-increasing order  
 
-core/add-search-path
+core/add-search-path  
 ---
-fn 'core/add-search-path (2)
+fn 'core/add-search-path (2)  
 (key path)
- Adds path to file search path list bound to key
+ Adds path to file search path list bound to key  
 
-core/apply
+core/apply  
 ---
-fn 'core/apply (2)
-A doc string
+fn 'core/apply (2)  
+A doc string  
 
-core/assert
+core/assert  
 ---
-fn 'core/assert (2)
+fn 'core/assert (2)  
 (str val)
- Throws an exception with message str if val evals to false
+ Throws an exception with message str if val evals to false  
 
-core/bool?
+core/bool?  
 ---
-fn 'core/bool? (1)
+fn 'core/bool? (1)  
 (val)
- Returns true if val is a boolean
+ Returns true if val is a boolean  
 
-core/car
+core/car  
 ---
-fn 'core/car (1)
-A doc string
+fn 'core/car (1)  
+A doc string  
 
-core/cdr
+core/cdr  
 ---
-fn 'core/cdr (1)
-A doc string
+fn 'core/cdr (1)  
+A doc string  
 
-core/char
+core/char  
 ---
-fn 'core/char (1)
+fn 'core/char (1)  
 (num)
- Returns num as a char
+ Returns num as a char  
 
-core/compile-eval
+core/compile-eval  
 ---
-fn 'core/compile-eval (1)
+fn 'core/compile-eval (1)  
 (str)
- Parses, compiles and evals str, returns the eval result
+ Parses, compiles and evals str, returns the eval result  
 
-core/complement
+core/complement  
 ---
-fn 'core/complement (1)
-nil
+fn 'core/complement (1)  
+nil  
 
-core/cons
+core/cons  
 ---
-fn 'core/cons (2)
-A doc string
+fn 'core/cons (2)  
+A doc string  
 
-core/constantly
+core/constantly  
 ---
-fn 'core/constantly (1)
-nil
+fn 'core/constantly (1)  
+nil  
 
-core/count
+core/count  
 ---
-fn 'core/count (1)
-A doc string
+fn 'core/count (1)  
+A doc string  
 
-core/dec
+core/dec  
 ---
-fn 'core/dec (1)
-nil
+fn 'core/dec (1)  
+nil  
 
-core/def
+core/def  
 ---
-fn 'core/def (2)
+fn 'core/def (2)  
 (name val)
- Evals val and assigns it to name
+ Evals val and assigns it to name  
 
-core/defmacro
+core/defmacro  
 ---
-fn 'core/defmacro (2 &)
+fn 'core/defmacro (2 &)  
 (name body & more)
- Defines a macro
+ Defines a macro  
 
-core/defn
+core/defn  
 ---
-macro 'core/defn (1 &)
-nil
+macro 'core/defn (1 &)  
+nil  
 
-core/do
+core/do  
 ---
-fn 'core/do (1 &)
+fn 'core/do (1 &)  
 (& body)
  Evaluates all elements of body in order, returns
- the result of the last evaluation
+ the result of the last evaluation  
 
-core/do-seq
+core/do-seq  
 ---
-macro 'core/do-seq (2)
-nil
+macro 'core/do-seq (2)  
+nil  
 
-core/doc
+core/doc  
 ---
-fn 'core/doc (1)
+fn 'core/doc (1)  
 (name)
- Displays the doc-string for 'name
+ Displays the doc-string for 'name  
 
-core/double
+core/double  
 ---
-fn 'core/double (1)
+fn 'core/double (1)  
 (num)
- Returns num as a double
+ Returns num as a double  
 
-core/eval
+core/eval  
 ---
-fn 'core/eval (1)
+fn 'core/eval (1)  
 (expr)
- Evaluates expr, returns the result
+ Evaluates expr, returns the result  
 
-core/filter
+core/filter  
 ---
-fn 'core/filter (2)
-A doc string
+fn 'core/filter (2)  
+A doc string  
 
-core/float
+core/float  
 ---
-fn 'core/float (1)
+fn 'core/float (1)  
 (num)
- Returns num as a float
+ Returns num as a float  
 
-core/fn
+core/fn  
 ---
-fn 'core/fn (2 &)
+fn 'core/fn (2 &)  
 ([name] [doc-string] binds & body)
- Defines a function with optional name and/or doc-string
+ Defines a function with optional name and/or doc-string  
 
-core/get
+core/get  
 ---
-fn 'core/get (2 &)
-A doc string
+fn 'core/get (2 &)  
+A doc string  
 
-core/identity
+core/identity  
 ---
-fn 'core/identity (1)
-nil
+fn 'core/identity (1)  
+nil  
 
-core/if
+core/if  
 ---
-fn 'core/if (3)
+fn 'core/if (3)  
 (cond then else)
- If cond evals to true evals then otherwise else
+ If cond evals to true evals then otherwise else  
 
-core/if-not
+core/if-not  
 ---
-macro 'core/if-not (3)
-nil
+macro 'core/if-not (3)  
+nil  
 
-core/inc
+core/inc  
 ---
-fn 'core/inc (1)
-nil
+fn 'core/inc (1)  
+nil  
 
-core/int
+core/int  
 ---
-fn 'core/int (1)
+fn 'core/int (1)  
 (num)
- Returns num as an int
+ Returns num as an int  
 
-core/iterate
+core/iterate  
 ---
-fn 'core/iterate (2)
-A doc string
+fn 'core/iterate (2)  
+A doc string  
 
-core/let
+core/let  
 ---
-fn 'core/let (2 &)
+fn 'core/let (2 &)  
 (binds body & more)
- Evals body&more with the specified local bindings
+ Evals body&more with the specified local bindings  
 
-core/list
+core/list  
 ---
-fn 'core/list (&)
-A doc string
+fn 'core/list (&)  
+A doc string  
 
-core/load-file
+core/load-file  
 ---
-fn 'core/load-file (1)
+fn 'core/load-file (1)  
 (path)
- Loads and evaluates a file, path may be a name or a string
+ Loads and evaluates a file, path may be a name or a string  
 
-core/long
+core/long  
 ---
-fn 'core/long (1)
+fn 'core/long (1)  
 (num)
- Returns num as a long
+ Returns num as a long  
 
-core/macroexpand
+core/macroexpand  
 ---
-fn 'core/macroexpand (1)
+fn 'core/macroexpand (1)  
 (sexp)
- Returns the result of the macro expansion in seq
+ Returns the result of the macro expansion in seq  
 
-core/map
+core/map  
 ---
-fn 'core/map (2)
-A doc string
+fn 'core/map (2)  
+A doc string  
 
-core/max
+core/max  
 ---
-fn 'core/max (1 &)
+fn 'core/max (1 &)  
 (num & nums)
- Returns the maximum of num & nums
+ Returns the maximum of num & nums  
 
-core/min
+core/min  
 ---
-fn 'core/min (1 &)
+fn 'core/min (1 &)  
 (num & nums)
- Returns the minimum of num & nums
+ Returns the minimum of num & nums  
 
-core/next
+core/next  
 ---
-Startup took 226.9604ms
-fn 'core/next (1)
-nil
+fn 'core/next (1)  
+nil  
 
-core/nil?
+core/nil?  
 ---
-fn 'core/nil? (1)
+fn 'core/nil? (1)  
 (val)
- Returns true if val is nil
+ Returns true if val is nil  
 
-core/not
+core/not  
 ---
-fn 'core/not (1)
+fn 'core/not (1)  
 (val)
- Returns the logical complement of val
+ Returns the logical complement of val  
 
-core/ns
+core/ns  
 ---
-fn 'core/ns (1)
+fn 'core/ns (1)  
 (name)
- Change current namespace to name
+ Change current namespace to name  
 
-core/number?
+core/number?  
 ---
-fn 'core/number? (1)
+fn 'core/number? (1)  
 (val)
- Returns true if val is a number
+ Returns true if val is a number  
 
-core/partial
+core/partial  
 ---
-fn 'core/partial (2)
-nil
+fn 'core/partial (2)  
+nil  
 
-core/prn
+core/prn  
 ---
-fn 'core/prn (&)
+fn 'core/prn (&)  
 (& xs)
- Prints all xs with a newline after all xs
+ Prints all xs with a newline after all xs  
 
-core/quote
+core/quote  
 ---
-fn 'core/quote (1)
+fn 'core/quote (1)  
 (val)
- Returns val as-is without evaluation
+ Returns val as-is without evaluation  
 
-core/range
+core/range  
 ---
-fn 'core/range (&)
-A doc string
+fn 'core/range (&)  
+A doc string  
 
-core/reduce
+core/reduce  
 ---
-fn 'core/reduce (2 &)
-A doc string
+fn 'core/reduce (2 &)  
+A doc string  
 
-core/reverse
+core/reverse  
 ---
-fn 'core/reverse (1)
-A doc string
+fn 'core/reverse (1)  
+A doc string  
 
-core/seq
+core/seq  
 ---
-fn 'core/seq (1)
-A doc string
+fn 'core/seq (1)  
+A doc string  
 
-core/str
+core/str  
 ---
-fn 'core/str (&)
+fn 'core/str (&)  
 (& xs)
  Returns a string consisting of the concatenations of all xs, nil results
- in an empty string
+ in an empty string  
 
-core/string?
+core/string?  
 ---
-fn 'core/string? (1)
+fn 'core/string? (1)  
 (val)
- Returns true if val is a string
+ Returns true if val is a string  
 
-core/syntax-quote
+core/syntax-quote  
 ---
-fn 'core/syntax-quote (1)
+fn 'core/syntax-quote (1)  
 (val)
  Special quote which allows the use of unquote inside of val,
- mainly used in macros
+ mainly used in macros  
 
-core/take
+core/take  
 ---
-fn 'core/take (2)
-A doc string
+fn 'core/take (2)  
+A doc string  
 
-core/take-all
+core/take-all  
 ---
-fn 'core/take-all (1)
-A doc string
+fn 'core/take-all (1)  
+A doc string  
 
-core/unquote
+core/unquote  
 ---
-fn 'core/unquote (1)
+fn 'core/unquote (1)  
 (val)
- Unquotes val, only accessible in syntax-quote
+ Unquotes val, only accessible in syntax-quote  
 
-core/unquote-splice
+core/unquote-splice  
 ---
-fn 'core/unquote-splice (1)
+fn 'core/unquote-splice (1)  
 (xs)
- Unquotes and splices xs, only accessible in syntax-quote
+ Unquotes and splices xs, only accessible in syntax-quote  
 
-core/when
+core/when  
 ---
-macro 'core/when (2 &)
-nil
+macro 'core/when (2 &)  
+nil  
 
-core/when-not
+core/when-not  
 ---
-macro 'core/when-not (2 &)
-nil
+macro 'core/when-not (2 &)  
+nil  
 
-reader/read-char
+reader/read-char  
 ---
-fn 'reader/read-char (1)
+fn 'reader/read-char (1)  
 (read-char parser)
  reads the next character from the input
- stream and returns it as an integer
+ stream and returns it as an integer  
 
-reader/read-val
+reader/read-val  
 ---
-fn 'reader/read-val (1)
+fn 'reader/read-val (1)  
 (read-val parser) -> reads and parses the next value (values are
-  numbers, strings, lists, ...)
+  numbers, strings, lists, ...)  
 
-reader/reader-macro
+reader/reader-macro  
 ---
-fn 'reader/reader-macro (2)
+fn 'reader/reader-macro (2)  
 (reader-macro character func) -> define a new reader-macro for
   character 'character. 'func is a fn taking two arguments:
   -> fn (parser next-character). reader-macros must exit using
-  one of the 'rm-resp-* response fns. next-character is an int
+  one of the 'rm-resp-* response fns. next-character is an int  
 
-reader/rm-fail-eof
+reader/rm-fail-eof  
 ---
-fn 'reader/rm-fail-eof (1)
+fn 'reader/rm-fail-eof (1)  
 (rm-fail-eof n) -> checks number 'n for stream EOF, throws
-  an IllegalStateException if so. returns true
+  an IllegalStateException if so. returns true  
 
-reader/rm-resp-val
+reader/rm-resp-val  
 ---
-fn 'reader/rm-resp-val (1)
+fn 'reader/rm-resp-val (1)  
 (rm-resp-val v) -> reader macro exit function telling the parser
-  that it should return the value 'v
+  that it should return the value 'v  
+
 
 # neetlisp uses ASM4:
 
