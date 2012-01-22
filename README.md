@@ -58,7 +58,7 @@ Keybindings:
 
 # Api
 
-See api.html.
+See api.html or <http://rjeschke.github.com/neetlisp>.
 
 # neetlisp uses ASM4:
 

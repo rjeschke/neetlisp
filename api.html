@@ -5,8 +5,9 @@
 <title>neetlisp API</title>
 </head>
 <body>
-<h2>Overview:</h2>
-<table>
+<table width='90em'><tr><td>
+<a name='overview'><h2>Overview:</h2></a>
+<table width='100%'>
 <tr><td><a href="#core%2F*">'core/*</a></td><td><a href="#core%2F%2B">'core/+</a></td><td><a href="#core%2F-">'core/-</a></td><td><a href="#core%2F%2F">'core//</a></td><td><a href="#core%2F%3C">'core/&lt;</a></td></tr>
 <tr><td><a href="#core%2F%3C%3D">'core/&lt;=</a></td><td><a href="#core%2F%3D">'core/=</a></td><td><a href="#core%2F%3D%3D">'core/==</a></td><td><a href="#core%2F%3E">'core/&gt;</a></td><td><a href="#core%2F%3E%3D">'core/&gt;=</a></td></tr>
 <tr><td><a href="#core%2Fadd-search-path">'core/add-search-path</a></td><td><a href="#core%2Fapply">'core/apply</a></td><td><a href="#core%2Fassert">'core/assert</a></td><td><a href="#core%2Fbool%3F">'core/bool?</a></td><td><a href="#core%2Fcar">'core/car</a></td></tr>
@@ -30,361 +31,438 @@
 <pre>fn 'core/* (&amp;)
 -----
 (&amp; xs)
- Returns the product of xs, (*) returns 1</pre><hr>
+ Returns the product of xs, (*) returns 1</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%2B">'core/+</a></b></br>
 <pre>fn 'core/+ (&amp;)
 -----
 (&amp; xs)
- Returns the sum of all xs, (+) returns 0</pre><hr>
+ Returns the sum of all xs, (+) returns 0</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F-">'core/-</a></b></br>
 <pre>fn 'core/- (1 &amp;)
 -----
 (num &amp; nums)
- Returns all nums subtracted from num or the negation of num if no nums are supplied</pre><hr>
+ Returns all nums subtracted from num or the negation of num if no nums are supplied</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%2F">'core//</a></b></br>
 <pre>fn 'core// (1 &amp;)
 -----
 (num &amp; den)
  Returns num divided by all dens, if no dens are supplied
- returns 1/num</pre><hr>
+ returns 1/num</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3C">'core/&lt;</a></b></br>
 <pre>fn 'core/&lt; (1 &amp;)
 -----
 (num &amp; nums)
- Returns true if num &amp; nums are in monotonically increasing order</pre><hr>
+ Returns true if num &amp; nums are in monotonically increasing order</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3C%3D">'core/&lt;=</a></b></br>
 <pre>fn 'core/&lt;= (1 &amp;)
 -----
 (num &amp; nums)
- Returns true if num &amp; nums are in monotonically non-decreasing order</pre><hr>
+ Returns true if num &amp; nums are in monotonically non-decreasing order</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3D">'core/=</a></b></br>
 <pre>fn 'core/= (1 &amp;)
 -----
 (num &amp; nums)
- Returns true if num is equal to all nums</pre><hr>
+ Returns true if num is equal to all nums</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3D%3D">'core/==</a></b></br>
 <pre>fn 'core/== (1 &amp;)
 -----
 (x &amp; xs)
- Returns true if x is equal to all xs</pre><hr>
+ Returns true if x is equal to all xs</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3E">'core/&gt;</a></b></br>
 <pre>fn 'core/&gt; (1 &amp;)
 -----
 (num &amp; nums)
- Returns true if num &amp; nums are in monotonically decreasing order</pre><hr>
+ Returns true if num &amp; nums are in monotonically decreasing order</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2F%3E%3D">'core/&gt;=</a></b></br>
 <pre>fn 'core/&gt;= (1 &amp;)
 -----
 (num &amp; nums)
- Returns true if num &amp; nums are in monotonically non-increasing order</pre><hr>
+ Returns true if num &amp; nums are in monotonically non-increasing order</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fadd-search-path">'core/add-search-path</a></b></br>
 <pre>fn 'core/add-search-path (2)
 -----
 (key path)
- Adds path to file search path list bound to key</pre><hr>
+ Adds path to file search path list bound to key</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fapply">'core/apply</a></b></br>
 <pre>fn 'core/apply (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fassert">'core/assert</a></b></br>
 <pre>fn 'core/assert (2)
 -----
 (str val)
- Throws an exception with message str if val evals to false</pre><hr>
+ Throws an exception with message str if val evals to false</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fbool%3F">'core/bool?</a></b></br>
 <pre>fn 'core/bool? (1)
 -----
 (val)
- Returns true if val is a boolean</pre><hr>
+ Returns true if val is a boolean</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcar">'core/car, 'core/first</a></b></br>
 <pre>fn 'core/car (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcdr">'core/cdr, 'core/rest</a></b></br>
 <pre>fn 'core/cdr (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fchar">'core/char</a></b></br>
 <pre>fn 'core/char (1)
 -----
 (num)
- Returns num as a char</pre><hr>
+ Returns num as a char</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcompile-eval">'core/compile-eval</a></b></br>
 <pre>fn 'core/compile-eval (1)
 -----
 (str)
- Parses, compiles and evals str, returns the eval result</pre><hr>
+ Parses, compiles and evals str, returns the eval result</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcomplement">'core/complement</a></b></br>
 <pre>fn 'core/complement (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcons">'core/cons</a></b></br>
 <pre>fn 'core/cons (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fconstantly">'core/constantly</a></b></br>
 <pre>fn 'core/constantly (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fcount">'core/count</a></b></br>
 <pre>fn 'core/count (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdec">'core/dec</a></b></br>
 <pre>fn 'core/dec (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdef">'core/def</a></b></br>
 <pre>fn 'core/def (2)
 -----
 (name val)
- Evals val and assigns it to name</pre><hr>
+ Evals val and assigns it to name</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdefmacro">'core/defmac, 'core/defmacro</a></b></br>
 <pre>fn 'core/defmacro (2 &amp;)
 -----
 (name body &amp; more)
- Defines a macro</pre><hr>
+ Defines a macro</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdefn">'core/defn, 'core/defun</a></b></br>
 <pre>macro 'core/defn (1 &amp;)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdo">'core/do</a></b></br>
 <pre>fn 'core/do (1 &amp;)
 -----
 (&amp; body)
  Evaluates all elements of body in order, returns
- the result of the last evaluation</pre><hr>
+ the result of the last evaluation</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdo-seq">'core/do-seq</a></b></br>
 <pre>macro 'core/do-seq (2)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdoc">'core/doc</a></b></br>
 <pre>fn 'core/doc (1)
 -----
 (name)
- Displays the doc-string for 'name</pre><hr>
+ Displays the doc-string for 'name</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fdouble">'core/double</a></b></br>
 <pre>fn 'core/double (1)
 -----
 (num)
- Returns num as a double</pre><hr>
+ Returns num as a double</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Feval">'core/eval</a></b></br>
 <pre>fn 'core/eval (1)
 -----
 (expr)
- Evaluates expr, returns the result</pre><hr>
+ Evaluates expr, returns the result</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Ffilter">'core/filter</a></b></br>
 <pre>fn 'core/filter (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Ffloat">'core/float</a></b></br>
 <pre>fn 'core/float (1)
 -----
 (num)
- Returns num as a float</pre><hr>
+ Returns num as a float</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Ffn">'core/fn, 'core/lambda, 'core/λ</a></b></br>
 <pre>fn 'core/fn (2 &amp;)
 -----
 ([name] [doc-string] binds &amp; body)
- Defines a function with optional name and/or doc-string</pre><hr>
+ Defines a function with optional name and/or doc-string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fgensym">'core/gensym</a></b></br>
 <pre>fn 'core/gensym ()
 -----
 ()
- Returns a unique name</pre><hr>
+ Returns a unique name</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fget">'core/get</a></b></br>
 <pre>fn 'core/get (2 &amp;)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fidentity">'core/identity</a></b></br>
 <pre>fn 'core/identity (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fif">'core/if</a></b></br>
 <pre>fn 'core/if (3)
 -----
 (cond then else)
- If cond evals to true evals then otherwise else</pre><hr>
+ If cond evals to true evals then otherwise else</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fif-not">'core/if-not</a></b></br>
 <pre>macro 'core/if-not (3)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Finc">'core/inc</a></b></br>
 <pre>fn 'core/inc (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fint">'core/int</a></b></br>
 <pre>fn 'core/int (1)
 -----
 (num)
- Returns num as an int</pre><hr>
+ Returns num as an int</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fiterate">'core/iterate</a></b></br>
 <pre>fn 'core/iterate (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Flet">'core/let</a></b></br>
 <pre>fn 'core/let (2 &amp;)
 -----
 (binds body &amp; more)
- Evals body&amp;more with the specified local bindings</pre><hr>
+ Evals body&amp;more with the specified local bindings</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Flist">'core/list</a></b></br>
 <pre>fn 'core/list (&amp;)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fload-file">'core/load-file</a></b></br>
 <pre>fn 'core/load-file (1)
 -----
 (path)
- Loads and evaluates a file, path may be a name or a string</pre><hr>
+ Loads and evaluates a file, path may be a name or a string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Flong">'core/long</a></b></br>
 <pre>fn 'core/long (1)
 -----
 (num)
- Returns num as a long</pre><hr>
+ Returns num as a long</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fmacroexpand">'core/macroexpand</a></b></br>
 <pre>fn 'core/macroexpand (1)
 -----
 (sexp)
- Returns the result of the macro expansion in seq</pre><hr>
+ Returns the result of the macro expansion in seq</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fmap">'core/map</a></b></br>
 <pre>fn 'core/map (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fmax">'core/max</a></b></br>
 <pre>fn 'core/max (1 &amp;)
 -----
 (num &amp; nums)
- Returns the maximum of num &amp; nums</pre><hr>
+ Returns the maximum of num &amp; nums</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fmin">'core/min</a></b></br>
 <pre>fn 'core/min (1 &amp;)
 -----
 (num &amp; nums)
- Returns the minimum of num &amp; nums</pre><hr>
+ Returns the minimum of num &amp; nums</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fnext">'core/next</a></b></br>
 <pre>fn 'core/next (1)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fnil%3F">'core/nil?</a></b></br>
 <pre>fn 'core/nil? (1)
 -----
 (val)
- Returns true if val is nil</pre><hr>
+ Returns true if val is nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fnot">'core/not</a></b></br>
 <pre>fn 'core/not (1)
 -----
 (val)
- Returns the logical complement of val</pre><hr>
+ Returns the logical complement of val</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fns">'core/ns</a></b></br>
 <pre>fn 'core/ns (1)
 -----
 (name)
- Change current namespace to name</pre><hr>
+ Change current namespace to name</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fnumber%3F">'core/number?</a></b></br>
 <pre>fn 'core/number? (1)
 -----
 (val)
- Returns true if val is a number</pre><hr>
+ Returns true if val is a number</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fpartial">'core/partial</a></b></br>
 <pre>fn 'core/partial (2)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fprn">'core/prn</a></b></br>
 <pre>fn 'core/prn (&amp;)
 -----
 (&amp; xs)
- Prints all xs with a newline after all xs</pre><hr>
+ Prints all xs with a newline after all xs</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fquote">'core/quote</a></b></br>
 <pre>fn 'core/quote (1)
 -----
 (val)
- Returns val as-is without evaluation</pre><hr>
+ Returns val as-is without evaluation</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Frange">'core/range</a></b></br>
 <pre>fn 'core/range (&amp;)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Freduce">'core/reduce</a></b></br>
 <pre>fn 'core/reduce (2 &amp;)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Freverse">'core/reverse</a></b></br>
 <pre>fn 'core/reverse (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fseq">'core/seq</a></b></br>
 <pre>fn 'core/seq (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fstr">'core/str</a></b></br>
 <pre>fn 'core/str (&amp;)
 -----
 (&amp; xs)
  Returns a string consisting of the concatenations of all xs, nil results
- in an empty string</pre><hr>
+ in an empty string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fstring%3F">'core/string?</a></b></br>
 <pre>fn 'core/string? (1)
 -----
 (val)
- Returns true if val is a string</pre><hr>
+ Returns true if val is a string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fsyntax-quote">'core/syntax-quote</a></b></br>
 <pre>fn 'core/syntax-quote (1)
 -----
 (val)
  Special quote which allows the use of unquote inside of val,
- mainly used in macros</pre><hr>
+ mainly used in macros</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Ftake">'core/take</a></b></br>
 <pre>fn 'core/take (2)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Ftake-all">'core/take-all</a></b></br>
 <pre>fn 'core/take-all (1)
 -----
-A doc string</pre><hr>
+A doc string</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Funquote">'core/unquote</a></b></br>
 <pre>fn 'core/unquote (1)
 -----
 (val)
- Unquotes val, only accessible in syntax-quote</pre><hr>
+ Unquotes val, only accessible in syntax-quote</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Funquote-splice">'core/unquote-splice</a></b></br>
 <pre>fn 'core/unquote-splice (1)
 -----
 (xs)
- Unquotes and splices xs, only accessible in syntax-quote</pre><hr>
+ Unquotes and splices xs, only accessible in syntax-quote</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fwhen">'core/when</a></b></br>
 <pre>macro 'core/when (2 &amp;)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="core%2Fwhen-not">'core/unless, 'core/when-not</a></b></br>
 <pre>macro 'core/when-not (2 &amp;)
 -----
-nil</pre><hr>
+nil</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="reader%2Fread-char">'reader/read-char</a></b></br>
 <pre>fn 'reader/read-char (1)
 -----
 (read-char parser)
  reads the next character from the input
- stream and returns it as an integer</pre><hr>
+ stream and returns it as an integer</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="reader%2Fread-val">'reader/read-val</a></b></br>
 <pre>fn 'reader/read-val (1)
 -----
 (read-val parser) -&gt; reads and parses the next value (values are
-  numbers, strings, lists, ...)</pre><hr>
+  numbers, strings, lists, ...)</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="reader%2Freader-macro">'reader/reader-macro</a></b></br>
 <pre>fn 'reader/reader-macro (2)
 -----
 (reader-macro character func) -&gt; define a new reader-macro for
   character 'character. 'func is a fn taking two arguments:
   -&gt; fn (parser next-character). reader-macros must exit using
-  one of the 'rm-resp-* response fns. next-character is an int</pre><hr>
+  one of the 'rm-resp-* response fns. next-character is an int</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="reader%2Frm-fail-eof">'reader/rm-fail-eof</a></b></br>
 <pre>fn 'reader/rm-fail-eof (1)
 -----
 (rm-fail-eof n) -&gt; checks number 'n for stream EOF, throws
-  an IllegalStateException if so. returns true</pre><hr>
+  an IllegalStateException if so. returns true</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <b><a name="reader%2Frm-resp-val">'reader/rm-resp-val</a></b></br>
 <pre>fn 'reader/rm-resp-val (1)
 -----
 (rm-resp-val v) -&gt; reader macro exit function telling the parser
-  that it should return the value 'v</pre><hr>
+  that it should return the value 'v</pre><small><a href='#overview'>Overview</a></small>
+<hr>
 <small>Copyright &copy; 2012 René Jeschke</br>
-Project link: <a href='https://github.com/rjeschke/neetlisp'>https://github.com/rjeschke/neetlisp</a></br></small></body>
+Project link: <a href='https://github.com/rjeschke/neetlisp'>https://github.com/rjeschke/neetlisp</a></br></small></td></tr></table>
+</body>
 </html>

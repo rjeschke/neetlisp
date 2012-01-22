@@ -97,8 +97,9 @@ public class DocGen
         w.write("</head>\n");
       
         w.write("<body>\n");
-        w.write("<h2>Overview:</h2>\n");
-        w.write("<table>\n");
+        w.write("<table width='90em'><tr><td>\n");
+        w.write("<a name='overview'><h2>Overview:</h2></a>\n");
+        w.write("<table width='100%'>\n");
         int x = 0;
         for(Entry e : all)
         {
@@ -159,11 +160,13 @@ public class DocGen
             w.write("-----\n");
             w.write(encode(fn.doc));
             w.write("</pre>");
+            w.write("<small><a href='#overview'>Overview</a></small>\n");
             w.write("<hr>\n");
         }
 
         w.write("<small>Copyright &copy; 2012 René Jeschke</br>\n");
         w.write("Project link: <a href='https://github.com/rjeschke/neetlisp'>https://github.com/rjeschke/neetlisp</a></br></small>");
+        w.write("</td></tr></table>\n");
         w.write("</body>\n");
         w.write("</html>\n");
         
