@@ -20,6 +20,7 @@ import neetlisp.Fn;
 import neetlisp.FnMeta;
 import neetlisp.NFiniteSeq;
 import neetlisp.NIterator;
+import neetlisp.NSeq;
 import neetlisp.Nil;
 import neetlisp.Util;
 import neetlisp.seq.NArray;
@@ -43,13 +44,13 @@ public class FnReduce extends Fn
             throw new IllegalArgumentException("Too many arguments to: fn reduce");
         
         Object val;
-        NFiniteSeq seq;
+        NSeq seq;
         NIterator it;
         
         if(args.size() == 0)
         {
             val = Nil.NIL;
-            seq = (NFiniteSeq)s;
+            seq = (NSeq)s;
             it = seq.getIterator();
             if(!it.hasNext())
                 return val;
@@ -58,7 +59,7 @@ public class FnReduce extends Fn
         else
         {
             val = s;
-            seq = (NFiniteSeq)(args.getIterator().next());
+            seq = (NSeq)(args.getIterator().next());
             it = seq.getIterator();
         }
         

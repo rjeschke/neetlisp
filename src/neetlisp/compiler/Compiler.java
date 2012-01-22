@@ -38,7 +38,7 @@ public class Compiler extends ClassLoader implements Opcodes
 {
     final Context context;
     private final HashMap<Name, SpecializedCompile> specializes = new HashMap<Name, SpecializedCompile>();
-    private boolean debugMode = true;
+    private boolean debugMode = false;
     
     public Compiler(final Context context)
     {
@@ -62,20 +62,26 @@ public class Compiler extends ClassLoader implements Opcodes
     
     public void debugOutClass(byte[] code, final String name)
     {
-        if(!this.debugMode)
-            return;
-        final File folder = new File(System.getProperty("user.home"), "nlsp_dbg");
-        final File out = new File(folder.getAbsolutePath(), name.substring(name.lastIndexOf('/') + 1) + ".class");
-        try
+        if(this.debugMode)
         {
-            final FileOutputStream fos = new FileOutputStream(out);
-            fos.write(code);
-            fos.close();
+            final File folder = new File(System.getProperty("user.home"), "nlsp_dbg");
+            final File out = new File(folder.getAbsolutePath(), name.substring(name.lastIndexOf('/') + 1) + ".class");
+            try
+            {
+                final FileOutputStream fos = new FileOutputStream(out);
+                fos.write(code);
+                fos.close();
+            }
+            catch(IOException e)
+            {
+                //
+            }
         }
-        catch(IOException e)
-        {
-            //
-        }
+    }
+    
+    public void setDebugMode(final boolean enable)
+    {
+        this.debugMode = enable;
     }
     
     private void importFns()
@@ -223,7 +229,7 @@ public class Compiler extends ClassLoader implements Opcodes
         }
         else if(Isa.name(obj))
         {
-            this.compileResolve(scope, cfn, mv, (Name)obj, fromUnquote);
+            this.compileResolve(scope, cfn, mv, scope.resolveToName((Name)obj), fromUnquote);
         }
         else
         {

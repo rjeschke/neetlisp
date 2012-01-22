@@ -24,6 +24,7 @@ import neetlisp.NIterator;
 import neetlisp.NSeq;
 import neetlisp.Number;
 import neetlisp.numbers.NumInt;
+import neetlisp.seq.NAbstractLazySeq;
 import neetlisp.seq.NList;
 
 public class FnTake extends Fn
@@ -35,15 +36,7 @@ public class FnTake extends Fn
     
     public Object eval(Object n, Object s)
     {
-        final int t = ((NumInt)NumInt.toThis((Number)n)).value;
-        final NSeq seq = (NSeq)s;
-        final ArrayList<Object> ret = new ArrayList<Object>();
-
-        final NIterator it = seq.getIterator();
-        for(int i = 0; i < t && it.hasNext(); i++)
-            ret.add(it.next());
-
-        return new NList(ret);
+        return new LzTake(new LzTakeState(((NSeq)s).getIterator(), ((NumInt)NumInt.toThis((Number)n)).value));
     }
     
     @Override
@@ -51,5 +44,39 @@ public class FnTake extends Fn
     {
         this.assureArguments(objects.length);
         return this.eval(objects[0], objects[1]);
+    }
+    
+    private final static class LzTakeState
+    {
+        final int length;
+        int done;
+        final NIterator it;
+        
+        public LzTakeState(final NIterator it, final int length)
+        {
+            this.it = it;
+            this.done = 0;
+            this.length = length;
+        }
+    }
+    
+    private final static class LzTake extends NAbstractLazySeq
+    {
+        public LzTake(Object state)
+        {
+            super(state);
+        }
+        
+        @Override
+        protected Object next(Object state)
+        {
+            final LzTakeState s = (LzTakeState)state;
+            
+            if(s.done >= s.length || !s.it.hasNext())
+                return null;
+            s.done++;
+            return s.it.next();
+        }
+        
     }
 }

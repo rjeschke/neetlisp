@@ -107,6 +107,7 @@ public class Swank implements Runnable
     public static void main(String[] args) throws IOException
     {
         ServerSocket server = new ServerSocket(4005);
+        System.out.println("Neetlisp SWANK started, listening on 4005, hardcore alpha version.");
         while(true)
         {
             Socket client = server.accept();

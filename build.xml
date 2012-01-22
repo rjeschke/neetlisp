@@ -58,4 +58,12 @@
     </exec>
   </target>
 
+  <target name="swank" depends="compile" description="Starts SWANK">
+    <exec executable="java" dir="build/classes">
+      <arg value="-cp"/>
+      <arg value="."/>
+      <arg value="neetlisp.swank.Swank"/>
+    </exec>
+  </target>
+
 </project>
