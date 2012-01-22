@@ -66,4 +66,12 @@
     </exec>
   </target>
 
+  <target name="api-doc" depends="compile" description="Creates api.html">
+    <exec executable="java" dir="build/classes">
+      <arg value="-cp"/>
+      <arg value="."/>
+      <arg value="neetlisp.DocGen"/>
+    </exec>
+  </target>
+
 </project>
