@@ -38,7 +38,7 @@ public class Compiler extends ClassLoader implements Opcodes
 {
     final Context context;
     private final HashMap<Name, SpecializedCompile> specializes = new HashMap<Name, SpecializedCompile>();
-    private boolean debugMode = false;
+    private boolean debugMode = true;
     
     public Compiler(final Context context)
     {
@@ -323,16 +323,35 @@ public class Compiler extends ClassLoader implements Opcodes
                 sb.append("Ljava/lang/Object;");
     
                 final int len = cdr.size() - meta.arguments;
-                CFn.visitIntConst(mv, len);
-                mv.visitTypeInsn(ANEWARRAY, "java/lang/Object");
-                for(int i = 0; i < len; i++)
+                if(len == 0)
                 {
-                    mv.visitInsn(DUP);
-                    CFn.visitIntConst(mv, i);
-                    this.compileObject(scope, cfn, mv, it.next());
-                    mv.visitInsn(AASTORE);
+                    mv.visitFieldInsn(GETSTATIC, "neetlisp/seq/NArray", "EMPTY", "Lneetlisp/seq/NArray;");
                 }
-                mv.visitMethodInsn(INVOKESTATIC, "neetlisp/seq/NArray", "wrap", "([Ljava/lang/Object;)Lneetlisp/seq/NArray;");
+                else if(len < 5)
+                {
+                    final StringBuilder wa = new StringBuilder();
+                    wa.append('(');
+                    for(int i = 0; i < len; i++)
+                    {
+                        wa.append("Ljava/lang/Object;");
+                        this.compileObject(scope, cfn, mv, it.next());
+                    }
+                    wa.append(")Lneetlisp/seq/NArray;");
+                    mv.visitMethodInsn(INVOKESTATIC, "neetlisp/Util", "wrapArray", wa.toString());
+                }
+                else
+                {
+                    CFn.visitIntConst(mv, len);
+                    mv.visitTypeInsn(ANEWARRAY, "java/lang/Object");
+                    for(int i = 0; i < len; i++)
+                    {
+                        mv.visitInsn(DUP);
+                        CFn.visitIntConst(mv, i);
+                        this.compileObject(scope, cfn, mv, it.next());
+                        mv.visitInsn(AASTORE);
+                    }
+                    mv.visitMethodInsn(INVOKESTATIC, "neetlisp/seq/NArray", "wrap", "([Ljava/lang/Object;)Lneetlisp/seq/NArray;");
+                }
             }
             
             sb.append(")Ljava/lang/Object;");

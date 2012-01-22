@@ -124,4 +124,29 @@ public class Util
             return new File(System.getProperty("user.home"), string.substring(1));
         return new File(string);
     }
+    
+    public static NArray wrapArray(Object o0)
+    {
+        return new NArray(new Object[] {o0});
+    }
+    
+    public static NArray wrapArray(Object o0, Object o1)
+    {
+        return new NArray(new Object[] {o0, o1});
+    }
+    
+    public static NArray wrapArray(Object o0, Object o1, Object o2)
+    {
+        return new NArray(new Object[] {o0, o1, o2});
+    }
+    
+    public static NArray wrapArray(Object o0, Object o1, Object o2, Object o3)
+    {
+        return new NArray(new Object[] {o0, o1, o2, o3});
+    }
+    
+    public static NArray wrapArray(Object o0, Object o1, Object o2, Object o3, Object o4)
+    {
+        return new NArray(new Object[] {o0, o1, o2, o3, o4});
+    }
 }
