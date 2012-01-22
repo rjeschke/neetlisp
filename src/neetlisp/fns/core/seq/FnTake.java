@@ -15,8 +15,6 @@
  */
 package neetlisp.fns.core.seq;
 
-import java.util.ArrayList;
-
 import neetlisp.Context;
 import neetlisp.Fn;
 import neetlisp.FnMeta;
@@ -25,7 +23,6 @@ import neetlisp.NSeq;
 import neetlisp.Number;
 import neetlisp.numbers.NumInt;
 import neetlisp.seq.NAbstractLazySeq;
-import neetlisp.seq.NList;
 
 public class FnTake extends Fn
 {

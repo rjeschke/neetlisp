@@ -15,11 +15,11 @@
 (ns 'core)
 
 (defn complement (f)
-  (fn (& args) 
+  (λ (& args) 
       (not (apply f args))))
 
 (defn constantly (v)
-  (fn () v))
+  (λ () v))
 
 (defn identity (v) v)
 
@@ -27,7 +27,7 @@
   (get xs 1))
 
 (defn partial (f arg)
-  (fn (& args)
+  (λ (& args)
     (apply f (cons arg args))))
 
 (defn inc (num)
