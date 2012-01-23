@@ -15,6 +15,7 @@
  */
 package neetlisp.compiler;
 
+import neetlisp.Isa;
 import neetlisp.NFiniteSeq;
 import neetlisp.NIterator;
 import neetlisp.Name;
@@ -37,25 +38,51 @@ public class SpecialCoreCond implements SpecializedCompile
         
         final Label end = new Label();
         Label next = null;
+        boolean hasElse = false;
         while(it.hasNext())
         {
+            final Object cond = it.next();
+            if(!it.hasNext())
+                throw new IllegalArgumentException("cond needs an even number of elements");
+            final Object expr = it.next();
+            // Skip constant FALSE conditions
+            if(Isa.nil(cond) || (Isa.bool(cond) && cond.equals(Boolean.FALSE)))
+                continue;
             if(next != null)
             {
                 mv.visitJumpInsn(Opcodes.GOTO, end);
                 mv.visitLabel(next);
             }
             next = new Label();
-            scope.compiler.compileObject(scope, cfn, mv, it.next());
-            if(!it.hasNext())
-                throw new IllegalArgumentException("cond needs an even number of elements");
-            final Object expr = it.next();
-            mv.visitMethodInsn(Opcodes.INVOKESTATIC, "neetlisp/Util", "booleanValue", "(Ljava/lang/Object;)Z");
-            mv.visitJumpInsn(Opcodes.IFEQ, next);
+            // Constant TRUE expression -> exit cond
+            if(Isa.keyword(cond)
+                    || Isa.nstring(cond)
+                    || Isa.number(cond)
+                    || (Isa.bool(cond) && cond.equals(Boolean.TRUE)))
+            {
+                hasElse = true;
+            }
+            else
+            {
+                scope.compiler.compileObject(scope, cfn, mv, cond);
+                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "neetlisp/Util", "booleanValue", "(Ljava/lang/Object;)Z");
+                mv.visitJumpInsn(Opcodes.IFEQ, next);
+            }
+            
             scope.compiler.compileObject(scope, cfn, mv, expr);
+            if(hasElse)
+                break;
+            
         }
-        mv.visitJumpInsn(Opcodes.GOTO, end);
-        mv.visitLabel(next);
-        mv.visitFieldInsn(Opcodes.GETSTATIC, "neetlisp/Nil", "NIL", "Lneetlisp/Nil;");
+        if(!hasElse)
+        {
+            if(next != null)
+            {
+                mv.visitJumpInsn(Opcodes.GOTO, end);
+                mv.visitLabel(next);    
+            }
+            mv.visitFieldInsn(Opcodes.GETSTATIC, "neetlisp/Nil", "NIL", "Lneetlisp/Nil;");
+        }
         mv.visitLabel(end);
     }
 }

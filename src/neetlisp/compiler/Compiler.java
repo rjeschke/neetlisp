@@ -38,7 +38,7 @@ public class Compiler extends ClassLoader implements Opcodes
 {
     final Context context;
     private final HashMap<Name, SpecializedCompile> specializes = new HashMap<Name, SpecializedCompile>();
-    private boolean debugMode = true;
+    private boolean debugMode = false;
     
     public Compiler(final Context context)
     {
@@ -50,7 +50,7 @@ public class Compiler extends ClassLoader implements Opcodes
     
     private void cleanDebugFolder()
     {
-        final File folder = new File(System.getProperty("user.home"), "nlsp_dbg");
+        final File folder = new File(System.getProperty("user.home"), ".nlsp_dbg");
         folder.mkdir();
         final File[] files = folder.listFiles();
         for(File f : files)
@@ -64,7 +64,7 @@ public class Compiler extends ClassLoader implements Opcodes
     {
         if(this.debugMode)
         {
-            final File folder = new File(System.getProperty("user.home"), "nlsp_dbg");
+            final File folder = new File(System.getProperty("user.home"), ".nlsp_dbg");
             final File out = new File(folder.getAbsolutePath(), name.substring(name.lastIndexOf('/') + 1) + ".class");
             try
             {
