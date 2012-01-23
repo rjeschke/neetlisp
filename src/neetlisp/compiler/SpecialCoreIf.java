@@ -15,6 +15,7 @@
  */
 package neetlisp.compiler;
 
+import neetlisp.Isa;
 import neetlisp.NFiniteSeq;
 import neetlisp.NIterator;
 import neetlisp.Name;
@@ -34,15 +35,36 @@ public class SpecialCoreIf implements SpecializedCompile
     public void compile(Scope scope, CFn cfn, MethodVisitor mv, NFiniteSeq cdr)
     {
         final NIterator it = cdr.getIterator();
-        scope.compiler.compileObject(scope, cfn, mv, it.next());
-        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "neetlisp/Util", "booleanValue", "(Ljava/lang/Object;)Z");
-        final Label l0 = new Label();
-        final Label l1 = new Label();
-        mv.visitJumpInsn(Opcodes.IFEQ, l0);
-        scope.compiler.compileObject(scope, cfn, mv, it.next());
-        mv.visitJumpInsn(Opcodes.GOTO, l1);
-        mv.visitLabel(l0);
-        scope.compiler.compileObject(scope, cfn, mv, it.next());
-        mv.visitLabel(l1);
+        final Object cond = it.next();
+        
+        if(Isa.nil(cond) || cond == Boolean.FALSE)
+        {
+            // just else
+            it.next();
+            scope.compiler.compileObject(scope, cfn, mv, it.next());
+        }
+        else if(Isa.keyword(cond)
+                || Isa.nstring(cond)
+                || Isa.number(cond)
+                || cond == Boolean.TRUE)
+        {
+            // just then
+            scope.compiler.compileObject(scope, cfn, mv, it.next());
+        }
+        else
+        {
+            // both
+            scope.compiler.compileObject(scope, cfn, mv, cond);
+            mv.visitMethodInsn(Opcodes.INVOKESTATIC, "neetlisp/Util", "booleanValue", "(Ljava/lang/Object;)Z");
+            final Label l0 = new Label();
+            final Label l1 = new Label();
+            mv.visitJumpInsn(Opcodes.IFEQ, l0);
+            scope.compiler.compileObject(scope, cfn, mv, it.next());
+            mv.visitJumpInsn(Opcodes.GOTO, l1);
+            mv.visitLabel(l0);
+            scope.compiler.compileObject(scope, cfn, mv, it.next());
+            mv.visitLabel(l1);
+        }
     }
 }
+

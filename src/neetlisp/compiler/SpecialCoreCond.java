@@ -46,7 +46,7 @@ public class SpecialCoreCond implements SpecializedCompile
                 throw new IllegalArgumentException("cond needs an even number of elements");
             final Object expr = it.next();
             // Skip constant FALSE conditions
-            if(Isa.nil(cond) || (Isa.bool(cond) && cond.equals(Boolean.FALSE)))
+            if(Isa.nil(cond) || cond == Boolean.FALSE)
                 continue;
             if(next != null)
             {
@@ -58,7 +58,7 @@ public class SpecialCoreCond implements SpecializedCompile
             if(Isa.keyword(cond)
                     || Isa.nstring(cond)
                     || Isa.number(cond)
-                    || (Isa.bool(cond) && cond.equals(Boolean.TRUE)))
+                    || cond == Boolean.TRUE)
             {
                 hasElse = true;
             }
