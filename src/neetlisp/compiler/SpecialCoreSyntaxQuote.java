@@ -81,7 +81,10 @@ public class SpecialCoreSyntaxQuote implements SpecializedCompile, Opcodes
         }
         else
         {
-            ((Compilable)obj).compile(cfn, mv);
+            if(Isa.name(obj))
+                scope.resolveToName((Name)obj).compile(cfn, mv);
+            else
+                ((Compilable)obj).compile(cfn, mv);
         }
         return true;
     }
