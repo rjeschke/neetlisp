@@ -25,7 +25,9 @@ public class DocGen
         @Override
         public int compareTo(Entry o)
         {
-            return this.name.getFullName().compareTo(o.name.getFullName());
+            if(this.name.getNamespace().length() == o.name.getNamespace().length())
+                return this.name.getFullName().compareTo(o.name.getFullName());
+            return this.name.getNamespace().length() - o.name.getNamespace().length();
         }
     }
     
@@ -97,7 +99,7 @@ public class DocGen
         w.write("</head>\n");
       
         w.write("<body>\n");
-        w.write("<table width='90em'><tr><td>\n");
+        w.write("<table style='width:100ex;'><tr><td>\n");
         w.write("<a name='overview'><h2>Overview:</h2></a>\n");
         w.write("<table width='100%'>\n");
         int x = 0;
@@ -115,7 +117,7 @@ public class DocGen
             w.write(link.toString());
             w.write("</td>");
             x++;
-            if(x == 5)
+            if(x == 4)
             {
                 x = 0;
                 w.write("</tr>\n");
@@ -123,7 +125,7 @@ public class DocGen
         }
         if(x != 0)
         {
-            for(int u = x; u < 5; u++)
+            for(int u = x; u < 4; u++)
             {
                 w.write("<td>&nbsp;</td>");
             }

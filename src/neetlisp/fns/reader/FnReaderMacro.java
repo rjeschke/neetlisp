@@ -26,7 +26,7 @@ public class FnReaderMacro extends Fn
 {
     public FnReaderMacro(Context context)
     {
-        super(context, new FnMeta("reader/reader-macro", 
+        super(context, new FnMeta("core.read/reader-macro", 
                 "(reader-macro character func) -> define a new reader-macro for\n" +
                 "  character 'character. 'func is a fn taking two arguments:\n" +
                 "  -> fn (parser next-character). reader-macros must exit using\n" +

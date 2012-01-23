@@ -13,42 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package neetlisp.fns.reader;
-
-import java.io.IOException;
+package neetlisp.fns.core;
 
 import neetlisp.Context;
 import neetlisp.Fn;
 import neetlisp.FnMeta;
-import neetlisp.Isa;
-import neetlisp.Parser;
 
-public class FnReadVal extends Fn
+public class FnError extends Fn
 {
-    public FnReadVal(Context context)
+    public FnError(final Context context)
     {
-        super(context, new FnMeta("core.read/read-val", 
-                "(read-val parser) -> reads and parses the next value (values are\n" +
-                "  numbers, strings, lists, ...)", 1, false, 0));
+        super(context, new FnMeta("core/error", 
+                "(str)\n" +
+                " Throws an exception with message error", 
+                1, false, 0));
     }
-
-    public Object eval(Object parser)
+    
+    public Object eval(Object s)
     {
-        try
-        {
-            final Object ret = ((Parser)parser).parse();
-            if(Isa.eof(ret))
-                throw new IllegalStateException("Unexpected EOF");
-            return ret;
-        }
-        catch(IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        throw new RuntimeException(s.toString());
     }
     
     @Override
-    public Object invoke(Object... objects)
+    public Object invoke(Object ... objects)
     {
         this.assureArguments(objects.length);
         return this.eval(objects[0]);

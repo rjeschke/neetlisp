@@ -15,42 +15,33 @@
  */
 package neetlisp.fns.reader;
 
-import java.io.IOException;
+import java.util.Stack;
 
 import neetlisp.Context;
 import neetlisp.Fn;
 import neetlisp.FnMeta;
-import neetlisp.Isa;
-import neetlisp.Parser;
+import neetlisp.Util;
+import neetlisp.numbers.NumInt;
 
-public class FnReadVal extends Fn
+public class FnPopChar extends Fn
 {
-    public FnReadVal(Context context)
+    public FnPopChar(Context context)
     {
-        super(context, new FnMeta("core.read/read-val", 
-                "(read-val parser) -> reads and parses the next value (values are\n" +
-                "  numbers, strings, lists, ...)", 1, false, 0));
+        super(context, new FnMeta("core.read/pop-char", 
+                "...", 
+                0, false, 0));
     }
 
-    public Object eval(Object parser)
+    public Object eval()
     {
-        try
-        {
-            final Object ret = ((Parser)parser).parse();
-            if(Isa.eof(ret))
-                throw new IllegalStateException("Unexpected EOF");
-            return ret;
-        }
-        catch(IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        final Stack<Integer> stack = Util.getCharStack();
+        return NumInt.create(stack.isEmpty() ? -1 : stack.pop());
     }
     
     @Override
-    public Object invoke(Object... objects)
+    public Object invoke(Object ... objects)
     {
         this.assureArguments(objects.length);
-        return this.eval(objects[0]);
+        return this.eval();
     }
 }

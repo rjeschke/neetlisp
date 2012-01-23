@@ -27,7 +27,7 @@ public class FnReadChar extends Fn
 {
     public FnReadChar(Context context)
     {
-        super(context, new FnMeta("reader/read-char", 
+        super(context, new FnMeta("core.read/read-char", 
                 "(read-char parser)\n" +
                 " reads the next character from the input\n" +
                 " stream and returns it as an integer", 

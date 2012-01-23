@@ -43,6 +43,11 @@ public class Parser
         return this.tok.read();
     }
     
+    public void ungetCharacter(int ch)
+    {
+        this.tok.ungetc(ch);
+    }
+    
     private NFiniteSeq parseSeq() throws IOException
     {
         final ArrayList<Object> list = new ArrayList<Object>();

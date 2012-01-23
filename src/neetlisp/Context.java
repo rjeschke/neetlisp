@@ -32,7 +32,7 @@ import neetlisp.compiler.Compiler;
 
 public class Context
 {
-    final static String[] AUTOLOADS = {"reader_macros", "core_macros", "core_redefs", "core"}; 
+    final static String[] AUTOLOADS = {"core_reader_macros", "core_macros", "core_redefs", "core"}; 
     final HashMap<String, Namespace> nss;
     final HashMap<Keyword, ArrayList<String>> load_paths = new HashMap<Keyword, ArrayList<String>>();
     final Fn[] readCharacterHandler;

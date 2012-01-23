@@ -25,7 +25,7 @@ public class FnRmFailEof extends Fn
 {
     public FnRmFailEof(Context context)
     {
-        super(context, new FnMeta("reader/rm-fail-eof", 
+        super(context, new FnMeta("core.read/rm-fail-eof", 
                 "(rm-fail-eof n) -> checks number 'n for stream EOF, throws\n" +
                 "  an IllegalStateException if so. returns true", 1, false, 0));
     }

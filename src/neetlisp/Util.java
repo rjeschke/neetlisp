@@ -17,6 +17,7 @@ package neetlisp;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Stack;
 import java.util.concurrent.atomic.AtomicLong;
 
 import neetlisp.seq.NArray;
@@ -25,6 +26,15 @@ import neetlisp.seq.NList;
 public class Util
 {
     private final static AtomicLong uniquify = new AtomicLong(0);
+    private final static ThreadLocal<Stack<Integer>> charStack = new ThreadLocal<Stack<Integer>>()
+    {
+        @Override
+        protected java.util.Stack<Integer> initialValue() 
+        {
+            return new Stack<Integer>();
+        }
+    };
+    
     final static Name fnDo = new Name("core", "do");
     
     public static NString wrapString(Object obj)
@@ -33,6 +43,11 @@ public class Util
             return (NString)obj;
         
         return new NString(obj.toString());
+    }
+    
+    public static Stack<Integer> getCharStack()
+    {
+        return charStack.get();
     }
     
     public static long getUniqueID()

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
+((Parser)parser) * Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ public class FnRmRespVal extends Fn
 {
     public FnRmRespVal(Context context)
     {
-        super(context, new FnMeta("reader/rm-resp-val", 
+        super(context, new FnMeta("core.read/rm-resp-val", 
                 "(rm-resp-val v) -> reader macro exit function telling the parser\n" +
                 "  that it should return the value 'v", 1, false, 0));
     }

@@ -15,36 +15,27 @@
  */
 package neetlisp.fns.reader;
 
-import java.io.IOException;
-
 import neetlisp.Context;
 import neetlisp.Fn;
 import neetlisp.FnMeta;
-import neetlisp.Isa;
-import neetlisp.Parser;
+import neetlisp.Nil;
+import neetlisp.Number;
+import neetlisp.Util;
+import neetlisp.numbers.NumInt;
 
-public class FnReadVal extends Fn
+public class FnPushChar extends Fn
 {
-    public FnReadVal(Context context)
+    public FnPushChar(Context context)
     {
-        super(context, new FnMeta("core.read/read-val", 
-                "(read-val parser) -> reads and parses the next value (values are\n" +
-                "  numbers, strings, lists, ...)", 1, false, 0));
+        super(context, new FnMeta("core.read/push-char", 
+                "...", 
+                1, false, 0));
     }
 
-    public Object eval(Object parser)
+    public Object eval(Object num)
     {
-        try
-        {
-            final Object ret = ((Parser)parser).parse();
-            if(Isa.eof(ret))
-                throw new IllegalStateException("Unexpected EOF");
-            return ret;
-        }
-        catch(IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        Util.getCharStack().push(((NumInt)NumInt.toThis((Number)num)).value);
+        return Nil.NIL;
     }
     
     @Override

@@ -140,7 +140,10 @@ public class Tokenizer
                 done = true;
                 break;
             default:
-                this.sb.append((char)this.chCur);
+                if(this.context.getReadCharacterHandler((char)this.chCur) != null)
+                    done = true;
+                else
+                    this.sb.append((char)this.chCur);
                 break;
             }
         }
@@ -169,7 +172,10 @@ public class Tokenizer
                 done = true;
                 break;
             default:
-                this.sb.append((char)this.chCur);
+                if(this.context.getReadCharacterHandler((char)this.chCur) != null)
+                    done = true;
+                else
+                    this.sb.append((char)this.chCur);
                 break;
             }
         }
@@ -195,7 +201,7 @@ public class Tokenizer
     
     
     
-    private void ungetc(int ch)
+    public void ungetc(int ch)
     {
         this.ungets.addLast(this.chCur);
         this.chCur = ch;

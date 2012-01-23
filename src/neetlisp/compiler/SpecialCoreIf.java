@@ -36,7 +36,6 @@ public class SpecialCoreIf implements SpecializedCompile
     {
         final NIterator it = cdr.getIterator();
         final Object cond = it.next();
-        
         if(Isa.nil(cond) || cond == Boolean.FALSE)
         {
             // just else

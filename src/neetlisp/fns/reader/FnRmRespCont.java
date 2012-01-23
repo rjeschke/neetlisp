@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
+((Parser)parser) * Copyright (C) 2012 René Jeschke <rene_jeschke@yahoo.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,42 +15,28 @@
  */
 package neetlisp.fns.reader;
 
-import java.io.IOException;
-
 import neetlisp.Context;
 import neetlisp.Fn;
 import neetlisp.FnMeta;
-import neetlisp.Isa;
-import neetlisp.Parser;
+import neetlisp.ReaderMacroResponse;
 
-public class FnReadVal extends Fn
+public class FnRmRespCont extends Fn
 {
-    public FnReadVal(Context context)
+    public FnRmRespCont(Context context)
     {
-        super(context, new FnMeta("core.read/read-val", 
-                "(read-val parser) -> reads and parses the next value (values are\n" +
-                "  numbers, strings, lists, ...)", 1, false, 0));
+        super(context, new FnMeta("core.read/rm-resp-cont", 
+                "A doc string", 0, false, 0));
     }
 
-    public Object eval(Object parser)
+    public Object eval()
     {
-        try
-        {
-            final Object ret = ((Parser)parser).parse();
-            if(Isa.eof(ret))
-                throw new IllegalStateException("Unexpected EOF");
-            return ret;
-        }
-        catch(IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        return ReaderMacroResponse.none();
     }
     
     @Override
     public Object invoke(Object... objects)
     {
         this.assureArguments(objects.length);
-        return this.eval(objects[0]);
+        return this.eval();
     }
 }

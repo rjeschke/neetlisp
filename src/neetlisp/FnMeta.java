@@ -85,6 +85,8 @@ public class FnMeta implements Comparable<FnMeta>
     @Override
     public int compareTo(FnMeta o)
     {
-        return this.name.getFullName().compareTo(o.name.getFullName());
+        if(this.name.getNamespace().length() == o.name.getNamespace().length())
+            return this.name.getFullName().compareTo(o.name.getFullName());
+        return this.name.getNamespace().length() - o.name.getNamespace().length();
     }
 }

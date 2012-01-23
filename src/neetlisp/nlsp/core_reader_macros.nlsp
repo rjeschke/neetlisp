@@ -12,41 +12,42 @@
 ; See the License for the specific language governing permissions and
 ; limitations under the License.
 
+(ns (quote core.read))
 
 ; Character reader-macro: \
-(reader/reader-macro 
+(reader-macro 
   (char 92) 
   (fn (p c) 
-      (reader/rm-fail-eof c)
-      (reader/read-char p) 
-      (reader/rm-resp-val (char c))))
+      (rm-fail-eof c)
+      (read-char p) 
+      (rm-resp-val (char c))))
 
 ; Quote reader macro: '
-(reader/reader-macro 
+(reader-macro 
   \' 
   (fn (p c) 
-    (reader/rm-resp-val 
-      (list (core/quote core/quote) (reader/read-val p)))))
+    (rm-resp-val 
+      (list (core/quote core/quote) (read-val p)))))
 
 
 ; Syntax quote reader macro: `
-(reader/reader-macro 
+(reader-macro 
   \` 
   (fn (p c) 
-    (reader/rm-resp-val 
-      (list 'core/syntax-quote (reader/read-val p)))))
+    (rm-resp-val 
+      (list 'core/syntax-quote (read-val p)))))
 
 ; Unquote reader macros: ~ and ~@
-(reader/reader-macro 
+(reader-macro 
   \~ 
   (fn (p c)
-    (reader/rm-fail-eof c)
+    (rm-fail-eof c)
     (if (= c \@) 
         (do
-          (reader/read-char p)
-          (reader/rm-resp-val 
-            (list 'core/unquote-splice (reader/read-val p))))
-        (reader/rm-resp-val 
-          (list 'core/unquote (reader/read-val p))))))
+          (read-char p)
+          (rm-resp-val 
+            (list 'core/unquote-splice (read-val p))))
+        (rm-resp-val 
+          (list 'core/unquote (read-val p))))))
 
 "neetlisp.nlsp.reader_macros loaded"
